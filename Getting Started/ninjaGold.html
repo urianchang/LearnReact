@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ninja Gold</title>
+        <script src="scripts/react.js"></script>
+        <script src="scripts/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    </head>
+    <body>
+
+        <div id="container"></div>
+
+        <script type="text/babel">
+
+            var Gold = React.createClass({
+                getInitialState: function() {
+                    return { gold : 0 }
+                },
+                render: function() {
+                    return (
+                        <div className="gold-tracker">
+                            <h3>Your stash: {this.state.gold} gold</h3>
+                        </div>
+                    );
+                }
+            });
+
+            var Place = React.createClass({
+                findGold: function() {
+                    console.log('look for gold', this.props.minGold, this.props.maxGold);
+                },
+                render: function() {
+                    return(
+                        <div className="moneymaker">
+                            <h3>{this.props.name}</h3>
+                            <p>(earns {this.props.minGold} - {this.props.maxGold})</p>
+                            <button className="button" onClick={this.findGold}>Find Gold!</button>
+                        </div>
+                    );
+                }
+            });
+
+            var Game = React.createClass({
+                render: function() {
+                    return (
+                        <div>
+                            <Gold />
+                            <Place name="Farm" minGold="10" maxGold="20" />
+                            <Place name="Cave" minGold="5" maxGold="10" />
+                            <Place name="House" minGold="2" maxGold="5" />
+                            <Place name="Casino" minGold="0" maxGold="50" />
+                        </div>
+                    );
+                }
+            });
+
+            ReactDOM.render(
+                <Game />,
+                document.getElementById('container')
+            );
+
+        </script>
+    </body>
+    <style>
+        .moneymaker {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+            text-align: center;
+        }
+        .gold-tracker {
+            width: 100%;
+            height: 50px;
+            display: block;
+        }
+        .button {
+            padding: 5px;
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</html>
