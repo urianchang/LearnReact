@@ -13,43 +13,42 @@
 
         <script type="text/babel">
 
-            var Gold = React.createClass({
-                getInitialState: function() {
-                    return { gold : 0 }
-                },
-                render: function() {
-                    return (
-                        <div className="gold-tracker">
-                            <h3>Your stash: {this.state.gold} gold</h3>
-                        </div>
-                    );
-                }
-            });
-
             var Place = React.createClass({
-                findGold: function() {
-                    console.log('look for gold', this.props.minGold, this.props.maxGold);
+                chaChing: function() {
+                    this.props.updateGoldCount(this.props.minGold, this.props.maxGold);
                 },
                 render: function() {
                     return(
                         <div className="moneymaker">
                             <h3>{this.props.name}</h3>
-                            <p>(earns {this.props.minGold} - {this.props.maxGold})</p>
-                            <button className="button" onClick={this.findGold}>Find Gold!</button>
+                            <p>(earns {this.props.minGold} to {this.props.maxGold} gold)</p>
+                            <button className="button" onClick={this.chaChing}>Find Gold!</button>
                         </div>
                     );
                 }
             });
 
             var Game = React.createClass({
+                getInitialState: function() {
+                    return { gold : 0, earned_gold : 0 }
+                },
+                findGold: function(min, max) {
+                    var goldEarned = Math.floor(Math.random()*(parseInt(max) - parseInt(min) + 1)) + parseInt(min);
+                    var currentGold = parseInt(this.state.gold);
+                    currentGold += goldEarned;
+                    this.setState({gold: currentGold, earned_gold: goldEarned});
+                },
                 render: function() {
                     return (
                         <div>
-                            <Gold />
-                            <Place name="Farm" minGold="10" maxGold="20" />
-                            <Place name="Cave" minGold="5" maxGold="10" />
-                            <Place name="House" minGold="2" maxGold="5" />
-                            <Place name="Casino" minGold="0" maxGold="50" />
+                            <div className="gold-tracker">
+                                <h3>Your stash: {this.state.gold} gold</h3>
+                                <p>You just earned: {this.state.earned_gold}</p>
+                            </div>
+                            <Place name="Farm" minGold="10" maxGold="20" updateGoldCount={this.findGold} />
+                            <Place name="Cave" minGold="5" maxGold="10" updateGoldCount={this.findGold} />
+                            <Place name="House" minGold="2" maxGold="5" updateGoldCount={this.findGold} />
+                            <Place name="Casino" minGold="-50" maxGold="50" updateGoldCount={this.findGold} />
                         </div>
                     );
                 }
@@ -75,6 +74,7 @@
         .gold-tracker {
             width: 100%;
             height: 50px;
+            margin: 10px;
             display: block;
         }
         .button {
