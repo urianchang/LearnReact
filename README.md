@@ -1,1 +1,2 @@
-Contains tutorials and exercises completed to learn React JS.
+# React Practice
+Tutorials and exercises completed to learn React.
