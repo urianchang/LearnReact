@@ -6,14 +6,35 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Toolbar />
       </div>
+    );
+  }
+}
+
+class Toolbar extends Component {
+  render() {
+    return (
+      <div className="navbar">
+        <ul>
+          <li><span><a href="#"><img src= { logo } className="App-logo" /></a></span></li>
+          <li><span><DashboardMenu /></span></li>
+          <li><span><a href="#">Analysis</a></span></li>
+          <li><span><a href="#">Data</a></span></li>
+          <li><span><a href="#">Timeline</a></span></li>
+        </ul>
+      </div>
+    );
+  }
+}
+
+class DashboardMenu extends Component {
+  render() {
+    return (
+      <ul>
+        <li>hi</li>
+        <li>bye</li>
+      </ul>
     );
   }
 }
