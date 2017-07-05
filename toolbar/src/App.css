@@ -28,8 +28,17 @@
   height: 60px;
   /*background-color: red;*/
 }
+.toolbar img {
+  display: inline-block;
+}
 
-.toolbar ul {
+.toolbar-content {
+  display: inline-block;
+  vertical-align: top;
+  background-color: yellow;
+}
+
+.toolbar-content ul {
   display: inline-block;
   list-style-type: none;
   margin: 0;
@@ -38,14 +47,15 @@
   vertical-align: top;
   /*background-color: blue;*/
 }
-
-.toolbar li {
+.toolbar-content li {
   float: left;
   height: 60px;
   line-height: 60px;
 }
-
-.toolbar li a{
+.toolbar-content li:hover {
+  background-color: gray;
+}
+.toolbar-content li a{
   display: block;
   text-decoration: none;
   color: black;
@@ -53,6 +63,18 @@
   padding: 0px 20px;
 }
 
-.toolbar li:hover {
+.dropdown {
+  display: inline-block;
+  height: 60px;
+  padding: 0px 20px;
+}
+.dropdown p {
+  margin-top: 21px;
+}
+.dropdown:hover {
   background-color: gray;
+}
+.dropdown-content {
+  display: block;
+  position: absolute;
 }
