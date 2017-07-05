@@ -26,32 +26,33 @@
 .toolbar {
   width: 100%;
   height: 60px;
+  /*background-color: red;*/
 }
 
-/*ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+.toolbar ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  vertical-align: top;
+  /*background-color: blue;*/
 }
 
-li {
+.toolbar li {
   float: left;
   height: 60px;
+  line-height: 60px;
 }
 
-li span {
+.toolbar li a{
   display: block;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  padding: 0px 20px;
 }
 
-li a{
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    line-height: 40px;
+.toolbar li:hover {
+  background-color: gray;
 }
-
-li span:hover {
-    background-color: gray;
-}*/
