@@ -62,7 +62,7 @@ function OpenedToolbar() {
 }
 
 function ClosedToolbar() {
-  return (<ul></ul>);
+  return (<div></div>);
 }
 
 class DropdownControl extends Component {
