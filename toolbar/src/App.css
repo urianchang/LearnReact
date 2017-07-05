@@ -26,8 +26,10 @@
 .toolbar {
   width: 100%;
   height: 60px;
+  position: fixed;
   /*background-color: red;*/
 }
+
 .toolbar img {
   display: inline-block;
 }
@@ -47,14 +49,17 @@
   vertical-align: top;
   /*background-color: blue;*/
 }
+
 .toolbar-content li {
   float: left;
   height: 60px;
   line-height: 60px;
 }
+
 .toolbar-content li:hover {
   background-color: gray;
 }
+
 .toolbar-content li a{
   display: block;
   text-decoration: none;
@@ -68,13 +73,26 @@
   height: 60px;
   padding: 0px 20px;
 }
+
 .dropdown p {
   margin-top: 21px;
 }
+
 .dropdown:hover {
   background-color: gray;
 }
+
 .dropdown-content {
   display: block;
   position: absolute;
+  margin-top: 5px;
+  background-color: red;
+  min-width: 100px;
+}
+
+.dropdown-content a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  text-align: center;
 }
