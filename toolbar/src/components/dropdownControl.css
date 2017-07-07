@@ -1,0 +1,35 @@
+.dropdown {
+  display: inline-block;
+  height: 60px;
+  padding: 0px 20px;
+}
+
+.dropdown p {
+  margin-top: 21px;
+}
+
+.dropdown:hover {
+  background-color: gray;
+}
+
+.dropdown-content {
+  display: block;
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 5px;
+  /*background-color: red;*/
+  min-width: 97px;
+}
+
+.dropdown-content a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  /*background-color: red;*/
+}
+
+.dropdown-content a:hover {
+  background-color: gray;
+}

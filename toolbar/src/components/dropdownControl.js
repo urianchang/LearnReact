@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import './dropdownControl.css';
 
 
 class DropdownControl extends Component {
