@@ -7,24 +7,20 @@ class ToolbarControl extends Component {
   constructor() {
     super();
     this.state = {isSlideOut: false};
-    this.slide = this.slide.bind(this); //: Need to check to why we must 'bind'
+    this.slide = this.slide.bind(this);
   }
   slide() {
     let s = !this.state.isSlideOut;
+    // this.props.navigateTo(); //: works
     this.setState({ isSlideOut: s });
   }
   render() {
     const isSlideOut = this.state.isSlideOut;
-    // let toolbar = null;
-    // if (isSlideOut) {
-    //   toolbar = <h1>opened</h1>;
-    // } else {
-    //   toolbar = <h1>closed</h1>;
-    // }
+    const navigateTo = this.props.navigateTo;
     return (
       <div className="toolbar">
         <img src={logo} className="App-logo" alt="logo" onClick={this.slide}/>
-        <Toolbar isSlideOut={isSlideOut} />
+        <Toolbar isSlideOut={isSlideOut} navigateTo={navigateTo} />
       </div>
     );
   }
@@ -32,25 +28,53 @@ class ToolbarControl extends Component {
 
 function Toolbar(props) {
   const isSlideOut = props.isSlideOut;
+  const navigateTo = props.navigateTo;
   if (isSlideOut) {
-    return <OpenedToolbar />;
+    return <OpenedToolbar navigateTo={navigateTo} />;
   } else {
     return <ClosedToolbar />;
   }
 }
 
-function OpenedToolbar() {
-  return (
-    <div className="toolbar-content">
-      <DropdownControl />
-      <ul>
-        <li><a href="#">A</a></li>
-        <li><a href="#">B</a></li>
-        <li><a href="#">C</a></li>
-      </ul>
-    </div>
-  );
+class OpenedToolbar extends Component {
+
+  constructor() {
+    super();
+    this.navigate = this.navigate.bind(this);
+  }
+
+  navigate() {
+    console.log(this);
+    this.props.navigateTo();
+  }
+
+  render() {
+    return (
+      <div className="toolbar-content">
+        <DropdownControl />
+        <ul>
+          <li><a onClick={this.navigate}>A</a></li>
+          <li><a onClick={this.navigate}>B</a></li>
+          <li><a onClick={this.navigate}>C</a></li>
+        </ul>
+      </div>
+    );
+  }
+
 }
+
+// function OpenedToolbar() {
+//   return (
+//     <div className="toolbar-content">
+//       <DropdownControl />
+//       <ul>
+//         <li><a href="#">A</a></li>
+//         <li><a href="#">B</a></li>
+//         <li><a href="#">C</a></li>
+//       </ul>
+//     </div>
+//   );
+// }
 
 function ClosedToolbar() {
   return (<div></div>);
