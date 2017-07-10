@@ -17,10 +17,12 @@ class ToolbarControl extends Component {
   render() {
     const isSlideOut = this.state.isSlideOut;
     const navigateTo = this.props.navigateTo;
+    const links = this.props.links;
+    // console.log(links);
     return (
       <div className="toolbar">
         <img src={logo} className="App-logo" alt="logo" onClick={this.slide}/>
-        <Toolbar isSlideOut={isSlideOut} navigateTo={navigateTo} />
+        <Toolbar isSlideOut={isSlideOut} navigateTo={navigateTo} links={links} />
       </div>
     );
   }
@@ -29,8 +31,9 @@ class ToolbarControl extends Component {
 function Toolbar(props) {
   const isSlideOut = props.isSlideOut;
   const navigateTo = props.navigateTo;
+  const links = props.links;
   if (isSlideOut) {
-    return <OpenedToolbar navigateTo={navigateTo} />;
+    return <OpenedToolbar navigateTo={navigateTo} links={links} />;
   } else {
     return <ClosedToolbar />;
   }
@@ -43,25 +46,30 @@ class OpenedToolbar extends Component {
     this.navigate = this.navigate.bind(this);
   }
 
-  navigate() {
-    console.log(this);
-    this.props.navigateTo();
+  navigate(p) {
+    // console.log(p);
+    this.props.navigateTo(p);
   }
 
   render() {
+    let links = this.props.links;
     return (
       <div className="toolbar-content">
         <DropdownControl />
         <ul>
-          <li><a onClick={this.navigate}>A</a></li>
-          <li><a onClick={this.navigate}>B</a></li>
-          <li><a onClick={this.navigate}>C</a></li>
+          <li><a onClick={ () => this.navigate(links[0]) }>{ links[0] }</a></li>
+          <li><a onClick={ () => this.navigate(links[1]) }>{ links[1] }</a></li>
+          <li><a onClick={ () => this.navigate(links[2]) }>{ links[2] }</a></li>
         </ul>
       </div>
     );
   }
 
 }
+
+// <li><a onClick={this.navigate}>{this.props.links[0]}</a></li>
+// <li><a onClick={this.navigate}>{this.props.links[1]}</a></li>
+// <li><a onClick={this.navigate}>{this.props.links[2]}</a></li>
 
 // function OpenedToolbar() {
 //   return (
