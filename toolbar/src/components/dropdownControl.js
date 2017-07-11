@@ -43,7 +43,7 @@ class OpenedDropdown extends Component {
   }
 
   render() {
-    const navigateTo = this.props.navigateTo;
+    // const navigateTo = this.props.navigateTo;
     return (
       <div>
         <p>Opened</p>

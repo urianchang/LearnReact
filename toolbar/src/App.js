@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ToolbarControl from './components/toolbarControl';
+import MainContent from './components/mainContent';
 
 // const navbarLinks = ["A", "B", "C"];
 
@@ -14,9 +15,9 @@ class App extends Component {
     this.navigate = this.navigate.bind(this);
   }
 
-  navigate(p) {
-    console.log("changing page...", p);
-    this.setState({ page: p });
+  navigate(param1) {
+    // console.log("changing page...", p);
+    this.setState({ page: param1 });
   }
 
   render() {
@@ -26,53 +27,6 @@ class App extends Component {
       <div className="App">
         <ToolbarControl navigateTo={this.navigate} />
         <MainContent shownPage={shownPage} />
-      </div>
-    );
-  }
-}
-
-function MainContent(props) {
-  const shownPage = props.shownPage;
-  if (shownPage === "home") {
-    return (
-      <div>
-        <h1>hello world</h1>
-        <h2>home page rendered</h2>
-      </div>
-    );
-  }
-  if (shownPage === "A") {
-    return (
-      <div>
-        <h1>Page A loaded</h1>
-      </div>
-    );
-  }
-  if (shownPage === "B") {
-    return (
-      <div>
-        <h1>Page B loaded</h1>
-      </div>
-    );
-  }
-  if (shownPage === "C") {
-    return (
-      <div>
-        <h1>Page C loaded</h1>
-      </div>
-    );
-  }
-  if (shownPage === "hello") {
-    return (
-      <div>
-        <h1>hello there! My name is Urian</h1>
-      </div>
-    );
-  }
-  if (shownPage === "bye") {
-    return (
-      <div>
-        <h1>Is this good-bye?</h1>
       </div>
     );
   }
