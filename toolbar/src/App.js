@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ToolbarControl from './components/toolbarControl';
 
-const navbarLinks = ["A", "B", "C"];
+// const navbarLinks = ["A", "B", "C"];
 
 class App extends Component {
 
@@ -9,22 +9,22 @@ class App extends Component {
     super();
     this.state = {
       page: "home",
-      links: navbarLinks
+      // links: navbarLinks
     };
     this.navigate = this.navigate.bind(this);
   }
 
   navigate(p) {
-    // console.log("changing page...", p);
+    console.log("changing page...", p);
     this.setState({ page: p });
   }
 
   render() {
     let shownPage = this.state.page;
-    let links = this.state.links;
+    // let links = this.state.links;
     return (
       <div className="App">
-        <ToolbarControl navigateTo={this.navigate} links={links} />
+        <ToolbarControl navigateTo={this.navigate} />
         <MainContent shownPage={shownPage} />
       </div>
     );
@@ -59,6 +59,20 @@ function MainContent(props) {
     return (
       <div>
         <h1>Page C loaded</h1>
+      </div>
+    );
+  }
+  if (shownPage === "hello") {
+    return (
+      <div>
+        <h1>hello there! My name is Urian</h1>
+      </div>
+    );
+  }
+  if (shownPage === "bye") {
+    return (
+      <div>
+        <h1>Is this good-bye?</h1>
       </div>
     );
   }

@@ -2,6 +2,7 @@
   display: inline-block;
   height: 60px;
   padding: 0px 20px;
+  /*background-color: #222;*/
 }
 
 .dropdown p {
@@ -17,13 +18,14 @@
   position: absolute;
   margin-left: -20px;
   margin-top: 5px;
-  /*background-color: red;*/
+  background-color: #222;
   min-width: 97px;
+  /*z-index: 1;*/
 }
 
 .dropdown-content a {
   display: block;
-  color: black;
+  color: white;
   text-decoration: none;
   text-align: center;
   padding: 10px;

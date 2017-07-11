@@ -14,38 +14,60 @@ class DropdownControl extends Component {
   }
   render() {
     const isDropdownOpen = this.state.isDropdownOpen;
-    // let dropdown = null;
-    // if (isDropdownOpen) {
-    //   dropdown = <h1>opened</h1>;
-    // } else {
-    //   dropdown = <h1>closed</h1>;
-    // }
+    const navigateTo = this.props.navigateTo;
     return (
-      <div className="dropdown" onClick={this.dropIt}><Dropdown isDropdownOpen={isDropdownOpen}/></div>
+      <div className="dropdown" onClick={this.dropIt}><Dropdown isDropdownOpen={isDropdownOpen} navigateTo={navigateTo} /></div>
     );
   }
 }
 
 function Dropdown(props) {
   const isDropdownOpen = props.isDropdownOpen;
+  const navigateTo = props.navigateTo;
   if (isDropdownOpen) {
-    return <OpenedDropdown />;
+    return <OpenedDropdown navigateTo={navigateTo} />;
   } else {
     return <ClosedDropdown />;
   }
 }
 
-function OpenedDropdown() {
-  return (
-    <div>
-      <p>Opened</p>
-      <div className="dropdown-content">
-        <a href="#">hello</a>
-        <a href="#">bye</a>
+class OpenedDropdown extends Component {
+
+  constructor() {
+    super();
+    this.navigate = this.navigate.bind(this);
+  }
+
+  navigate(param1) {
+    this.props.navigateTo(param1);
+  }
+
+  render() {
+    const navigateTo = this.props.navigateTo;
+    return (
+      <div>
+        <p>Opened</p>
+        <div className="dropdown-content">
+          <a onClick={ () => this.navigate("hello") }>hello</a>
+          <a onClick={ () => this.navigate("bye") }>bye</a>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
 }
+
+// function OpenedDropdown() {
+//   return (
+//     <div>
+//       <p>Opened</p>
+//       <div className="dropdown-content">
+//         <a href="#">hello</a>
+//         <a href="#">bye</a>
+//       </div>
+//     </div>
+//   );
+// }
 
 function ClosedDropdown() {
   return (
