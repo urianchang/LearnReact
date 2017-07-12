@@ -17,12 +17,11 @@ class ToolbarControl extends Component {
   render() {
     const isSlideOut = this.state.isSlideOut;
     const navigateTo = this.props.navigateTo;
-    // const links = this.props.links;
-    // console.log(links);
+    const currentPage = this.props.currentPage;
     return (
       <div className="toolbar">
         <img src={logo} className="App-logo" alt="logo" onClick={this.slide}/>
-        <Toolbar isSlideOut={isSlideOut} navigateTo={navigateTo} />
+        <Toolbar isSlideOut={isSlideOut} navigateTo={navigateTo} currentPage={currentPage} />
       </div>
     );
   }
@@ -31,9 +30,9 @@ class ToolbarControl extends Component {
 function Toolbar(props) {
   const isSlideOut = props.isSlideOut;
   const navigateTo = props.navigateTo;
-  // const links = props.links;
+  const currentPage = props.currentPage;
   if (isSlideOut) {
-    return <OpenedToolbar navigateTo={navigateTo} />;
+    return <OpenedToolbar navigateTo={navigateTo} currentPage={currentPage} />;
   } else {
     return <ClosedToolbar />;
   }
@@ -47,21 +46,21 @@ class OpenedToolbar extends Component {
   }
 
   navigate(param1) {
-    // console.log(p);
     this.props.navigateTo(param1);
   }
 
   render() {
     // let links = this.props.links;
     const navigateTo = this.props.navigateTo;
+    const currentPage = this.props.currentPage;
     return (
       <div className="toolbar-content">
-        <DropdownControl navigateTo={navigateTo} />
+        <DropdownControl navigateTo={navigateTo} currentPage={currentPage} />
         <ul>
-          <li><a onClick={ () => this.navigate("home") }>Home</a></li>
-          <li><a onClick={ () => this.navigate("A") }>A</a></li>
-          <li><a onClick={ () => this.navigate("B") }>B</a></li>
-          <li><a onClick={ () => this.navigate("C") }>C</a></li>
+          <SingleToolbarElement navigateTo={navigateTo} name="Home" currentPage={currentPage} />
+          <SingleToolbarElement navigateTo={navigateTo} name="A" currentPage={currentPage} />
+          <SingleToolbarElement navigateTo={navigateTo} name="B" currentPage={currentPage} />
+          <SingleToolbarElement navigateTo={navigateTo} name="C" currentPage={currentPage} />
         </ul>
       </div>
     );
@@ -69,25 +68,26 @@ class OpenedToolbar extends Component {
 
 }
 
-// <li><a onClick={ () => this.navigate(links[1]) }>{ links[1] }</a></li>
-// <li><a onClick={ () => this.navigate(links[2]) }>{ links[2] }</a></li>
+class SingleToolbarElement extends Component {
 
-// <li><a onClick={this.navigate}>{this.props.links[0]}</a></li>
-// <li><a onClick={this.navigate}>{this.props.links[1]}</a></li>
-// <li><a onClick={this.navigate}>{this.props.links[2]}</a></li>
+  constructor() {
+    super();
+    this.navigate = this.navigate.bind(this);
+  }
 
-// function OpenedToolbar() {
-//   return (
-//     <div className="toolbar-content">
-//       <DropdownControl />
-//       <ul>
-//         <li><a href="#">A</a></li>
-//         <li><a href="#">B</a></li>
-//         <li><a href="#">C</a></li>
-//       </ul>
-//     </div>
-//   );
-// }
+  navigate(param1) {
+    this.props.navigateTo(param1);
+  }
+
+  render() {
+    let name = this.props.name;
+    let isSelected = (this.props.currentPage === name) ? "selected" : "";
+    return (
+      <li className={'toolbar-link ' + isSelected}><a onClick={() => this.navigate(name) }>{name}</a></li>
+    );
+  }
+
+}
 
 function ClosedToolbar() {
   return (<div></div>);

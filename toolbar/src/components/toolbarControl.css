@@ -37,7 +37,29 @@
   /*background-color: blue;*/
 }
 
-.toolbar-content li {
+.toolbar-link {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+}
+
+.toolbar-link:hover {
+  background-color: gray;
+}
+
+.toolbar-link a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding: 0px 20px;
+}
+
+.selected {
+  background-color: purple;
+}
+
+/*.toolbar-content li {
   float: left;
   height: 60px;
   line-height: 60px;
@@ -53,4 +75,4 @@
   color: white;
   text-align: center;
   padding: 0px 20px;
-}
+}*/

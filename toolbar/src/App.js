@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      page: "home",
+      page: "Home",
       // links: navbarLinks
     };
     this.navigate = this.navigate.bind(this);
@@ -21,12 +21,12 @@ class App extends Component {
   }
 
   render() {
-    let shownPage = this.state.page;
+    let currentPage = this.state.page;
     // let links = this.state.links;
     return (
       <div className="App">
-        <ToolbarControl navigateTo={this.navigate} />
-        <MainContent shownPage={shownPage} />
+        <ToolbarControl navigateTo={this.navigate} currentPage={currentPage} />
+        <MainContent currentPage={currentPage} />
       </div>
     );
   }

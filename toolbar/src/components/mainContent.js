@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 class MainContent extends Component {
-  
-  render() {
-    const shownPage = this.props.shownPage;
-    switch (shownPage) {
 
-      case "home":
+  render() {
+    const currentPage = this.props.currentPage;
+    switch (currentPage) {
+
+      case "Home":
         return (
           <div>
             <h1>hello world</h1>

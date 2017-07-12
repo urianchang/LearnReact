@@ -15,8 +15,11 @@ class DropdownControl extends Component {
   render() {
     const isDropdownOpen = this.state.isDropdownOpen;
     const navigateTo = this.props.navigateTo;
+    const currentPage = this.props.currentPage;
     return (
-      <div className="dropdown" onClick={this.dropIt}><Dropdown isDropdownOpen={isDropdownOpen} navigateTo={navigateTo} /></div>
+      <div className="dropdown" onClick={this.dropIt}>
+        <Dropdown isDropdownOpen={isDropdownOpen} navigateTo={navigateTo} currentPage={currentPage} />
+      </div>
     );
   }
 }
@@ -24,14 +27,37 @@ class DropdownControl extends Component {
 function Dropdown(props) {
   const isDropdownOpen = props.isDropdownOpen;
   const navigateTo = props.navigateTo;
+  const currentPage = props.currentPage;
   if (isDropdownOpen) {
-    return <OpenedDropdown navigateTo={navigateTo} />;
+    return <OpenedDropdown navigateTo={navigateTo} currentPage={currentPage} />;
   } else {
     return <ClosedDropdown />;
   }
 }
 
 class OpenedDropdown extends Component {
+
+  // constructor() {
+  //   super();
+  // }
+
+  render() {
+    const navigateTo = this.props.navigateTo;
+    const currentPage = this.props.currentPage;
+    return (
+      <div>
+        <p>Opened</p>
+        <div className="dropdown-content">
+          <SingleDropdownElement navigateTo={navigateTo} currentPage={currentPage} name="hello" />
+          <SingleDropdownElement navigateTo={navigateTo} currentPage={currentPage} name="bye" />
+        </div>
+      </div>
+    );
+  }
+
+} //: end class
+
+class SingleDropdownElement extends Component {
 
   constructor() {
     super();
@@ -43,31 +69,14 @@ class OpenedDropdown extends Component {
   }
 
   render() {
-    // const navigateTo = this.props.navigateTo;
+    let name = this.props.name;
+    let isSelected = (this.props.currentPage === name) ? "selected" : "";
     return (
-      <div>
-        <p>Opened</p>
-        <div className="dropdown-content">
-          <a onClick={ () => this.navigate("hello") }>hello</a>
-          <a onClick={ () => this.navigate("bye") }>bye</a>
-        </div>
-      </div>
+      <a className={'dropdown-link ' + isSelected} onClick={() => this.navigate(name)}>{name}</a>
     );
   }
 
 }
-
-// function OpenedDropdown() {
-//   return (
-//     <div>
-//       <p>Opened</p>
-//       <div className="dropdown-content">
-//         <a href="#">hello</a>
-//         <a href="#">bye</a>
-//       </div>
-//     </div>
-//   );
-// }
 
 function ClosedDropdown() {
   return (

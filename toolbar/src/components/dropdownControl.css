@@ -23,13 +23,17 @@
   /*z-index: 1;*/
 }
 
-.dropdown-content a {
+.selected {
+  background-color: purple;
+}
+
+.dropdown-link {
   display: block;
   color: white;
   text-decoration: none;
   text-align: center;
   padding: 10px;
-  /*background-color: red;*/
+  /*background-color: #222;*/
 }
 
 .dropdown-content a:hover {
