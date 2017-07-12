@@ -23,6 +23,7 @@ class App extends Component {
   render() {
     let currentPage = this.state.page;
     // let links = this.state.links;
+    console.log(window.innerWidth);   //: User innerWidth to find browser window size
     return (
       <div className="App">
         <ToolbarControl navigateTo={this.navigate} currentPage={currentPage} />
