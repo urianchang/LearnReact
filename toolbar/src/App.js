@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import ToolbarControl from './components/toolbarControl';
 import MainContent from './components/mainContent';
 
-// const navbarLinks = ["A", "B", "C"];
-
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
       page: "Home",
-      // links: navbarLinks
+      width: window.innerWidth,
+      height: window.innerHeight
     };
     this.navigate = this.navigate.bind(this);
+    this.getDimensions = this.getDimensions.bind(this);
   }
 
   navigate(param1) {
@@ -20,10 +20,26 @@ class App extends Component {
     this.setState({ page: param1 });
   }
 
+  getDimensions(e) {
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+    // console.log(`Dimensions: ${this.state.width} W x ${this.state.height} H`);
+  }
+
+  componentDidMount() {
+    // console.log("app did mount");
+    window.addEventListener('resize', this.getDimensions);
+  }
+
+  componentWillUnmount() {
+    // console.log("app will unmount");
+    window.removeEventListener('resize', this.getDimensions);
+  }
+
   render() {
     let currentPage = this.state.page;
-    // let links = this.state.links;
-    console.log(window.innerWidth);   //: User innerWidth to find browser window size
     return (
       <div className="App">
         <ToolbarControl navigateTo={this.navigate} currentPage={currentPage} />
