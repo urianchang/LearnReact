@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       page: "Home",
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
+      // info: null
     };
     this.navigate = this.navigate.bind(this);
     this.getDimensions = this.getDimensions.bind(this);
@@ -29,6 +30,16 @@ class App extends Component {
     // console.log(`Dimensions: ${this.state.width} W x ${this.state.height} H`);
   }
 
+  // componentWillMount() {
+  //   console.log("component will mount");
+  //   const URL = "http://10.243.0.79:3002";
+  //   fetch(URL)
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       this.setState({ info: json });
+  //     });
+  // }
+
   componentDidMount() {
     // console.log("app did mount");
     window.addEventListener('resize', this.getDimensions);
@@ -43,6 +54,7 @@ class App extends Component {
     const currentPage = this.state.page;
     const width = this.state.width;
     const isMobile = (width <= 440) ? true : false;
+    // console.log(this.state.info);
     return (
       <div className="App">
         <ToolbarControl navigateTo={this.navigate} currentPage={currentPage} isMobile={isMobile} />

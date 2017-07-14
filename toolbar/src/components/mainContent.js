@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import PageA from './pageA';
 
 class MainContent extends Component {
 
   render() {
     const currentPage = this.props.currentPage;
     switch (currentPage) {
-
       case "Home":
         return (
           <div>
@@ -15,11 +15,8 @@ class MainContent extends Component {
         );
 
       case "A":
-        return (
-          <div>
-            <h1>Page A loaded</h1>
-          </div>
-        );
+        console.log("page A");
+        return (<PageA />);
 
       case "B":
         return (
