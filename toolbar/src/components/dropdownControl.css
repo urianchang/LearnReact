@@ -25,7 +25,9 @@
 
 .mobile .dropdown-content {
   position: absolute;
-  
+  margin-top: -55px;
+  margin-left: 100%;
+  border-left: 1px solid white;
 }
 
 .dropdown-content {
