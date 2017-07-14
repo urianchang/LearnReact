@@ -20,11 +20,24 @@
   display: inline-block;
 }
 
+.mobile .toolbar-content {
+  background-color: #222;
+  display: block;
+  margin-top: -4px;
+  width: 50%;
+  position: absolute;
+  border-top: 1px solid white;
+}
+
 .toolbar-content {
   display: inline-block;
   vertical-align: top;
   color: white;
   /*background-color: yellow;*/
+}
+
+.mobile .toolbar-content ul {
+  /*display: block;*/
 }
 
 .toolbar-content ul {
@@ -37,6 +50,13 @@
   /*background-color: blue;*/
 }
 
+.mobile .toolbar-link {
+  width: 100%;
+  /*height: 20px;*/
+  /*display: block;*/
+  /*line-height: 20px;*/
+}
+
 .toolbar-link {
   float: left;
   height: 60px;
@@ -45,6 +65,10 @@
 
 .toolbar-link:hover {
   background-color: gray;
+}
+
+.mobile .toolbar-link a {
+  text-align: left;
 }
 
 .toolbar-link a {
@@ -58,21 +82,3 @@
 .selected {
   background-color: purple;
 }
-
-/*.toolbar-content li {
-  float: left;
-  height: 60px;
-  line-height: 60px;
-}
-
-.toolbar-content li:hover {
-  background-color: gray;
-}
-
-.toolbar-content li a{
-  display: block;
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  padding: 0px 20px;
-}*/

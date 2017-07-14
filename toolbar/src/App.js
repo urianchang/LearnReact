@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ToolbarControl from './components/toolbarControl';
 import MainContent from './components/mainContent';
+import './App.css';
 
 class App extends Component {
 
@@ -39,11 +40,13 @@ class App extends Component {
   }
 
   render() {
-    let currentPage = this.state.page;
+    const currentPage = this.state.page;
+    const width = this.state.width;
+    const isMobile = (width <= 440) ? true : false;
     return (
       <div className="App">
-        <ToolbarControl navigateTo={this.navigate} currentPage={currentPage} />
-        <MainContent currentPage={currentPage} />
+        <ToolbarControl navigateTo={this.navigate} currentPage={currentPage} isMobile={isMobile} />
+        <MainContent className="body" currentPage={currentPage} />
       </div>
     );
   }

@@ -18,8 +18,9 @@ class ToolbarControl extends Component {
     const isSlideOut = this.state.isSlideOut;
     const navigateTo = this.props.navigateTo;
     const currentPage = this.props.currentPage;
+    const isMobile = (this.props.isMobile) ? "mobile" : "";
     return (
-      <div className="toolbar">
+      <div className={"toolbar " + isMobile } >
         <img src={logo} className="App-logo" alt="logo" onClick={this.slide}/>
         <Toolbar isSlideOut={isSlideOut} navigateTo={navigateTo} currentPage={currentPage} />
       </div>
