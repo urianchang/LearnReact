@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PageA from './templates/pageA/pageA';
+import PageB from './templates/pageB/pageB';
 
 
 class MainContent extends Component {
@@ -19,11 +20,7 @@ class MainContent extends Component {
         return (<PageA />);
 
       case "B":
-        return (
-          <div>
-            <h1>Page B loaded</h1>
-          </div>
-        );
+        return (<PageB />);
 
       case "C":
         return (
