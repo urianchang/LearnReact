@@ -15,7 +15,6 @@ class MainContent extends Component {
         );
 
       case "A":
-        console.log("page A");
         return (<PageA />);
 
       case "B":

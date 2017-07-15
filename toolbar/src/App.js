@@ -11,14 +11,12 @@ class App extends Component {
       page: "Home",
       width: window.innerWidth,
       height: window.innerHeight,
-      // info: null
     };
     this.navigate = this.navigate.bind(this);
     this.getDimensions = this.getDimensions.bind(this);
   }
 
   navigate(param1) {
-    // console.log("changing page...", p);
     this.setState({ page: param1 });
   }
 

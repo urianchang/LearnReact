@@ -32,19 +32,29 @@ class PageA extends Component {
     if (!data) {
       return(
         <div>
-          <h1>loading...</h1>
+          <h1>Loading...</h1>
         </div>
       );
     } else {
       return(
         <div>
-          <h1>page A rendered</h1>
-          <h2>Information from API call:</h2>
-          {
-            data.map( (obj, i) => {
-              return (<p key={i}>{obj.name}</p>);
-            })
-          }
+          <h1>All Users</h1>
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+            </tr>
+            {
+              data.map( (obj, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{obj._id}</td>
+                    <td>{obj.name}</td>
+                  </tr>
+                );
+              })
+            }
+          </table>
         </div>
       );
     }
