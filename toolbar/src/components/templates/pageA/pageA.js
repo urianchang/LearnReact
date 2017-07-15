@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './pageA.css';
 
 class PageA extends Component {
   constructor() {
