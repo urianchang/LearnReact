@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PageA from './pageA';
+import PageA from './templates/pageA/pageA';
+
 
 class MainContent extends Component {
 
