@@ -16,27 +16,68 @@ class App extends Component {
   }
 
   login(param1) {
-
+    if (param1 in userlist) {
+      console.log("yay");
+      this.setState({
+        isLoggedIn: true,
+        user: param1
+      });
+    }
   }
 
   render() {
-
-    return (
-
-    );
+    const isLoggedIn = this.state.isLoggedIn;
+    const username = this.state.user;
+    if (isLoggedIn) {
+      return(
+        <WelcomePage isLoggedIn={isLoggedIn} username={username} />
+      );
+    } else {
+      return(
+        <LoginPage login={this.login} isLoggedIn={isLoggedIn} />
+      );
+    }
   }
 }
 
 class LoginPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  handleChange(e) {
+    this.setState({username: e.target.value});
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    // console.log("submit hit");
+    this.props.login(this.state.username);
+  }
+
+  render() {
+    return(
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>Username: <input type="text" placeholder="e.g. 'test1'" onChange={this.handleChange} /></label>
+          <button type="Submit">Submit</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 class WelcomePage extends Component {
   render() {
+    const username = this.props.username;
     return(
       <div>
-        <h1>Thanks for logging in!</h1>
+        <h1>Thanks for logging in, {username}!</h1>
       </div>
     );
   }
