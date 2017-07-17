@@ -23,6 +23,8 @@ class App extends Component {
         isLoggedIn: true,
         user: param1
       });
+    } else {
+      alert("Username not found!");
     }
   }
 
@@ -71,7 +73,7 @@ class LoginPage extends Component {
   render() {
     return(
       <div>
-        <h1>Please login</h1>
+        <h1>Please log in</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Username: <input type="text" placeholder="e.g. 'test1'" onChange={this.handleChange} /></label>
           <button type="Submit">Submit</button>
