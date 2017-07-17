@@ -10,14 +10,15 @@ class App extends Component {
     super();
     this.state = {
       isLoggedIn: false,
-      user: null
+      user: null,
     }
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   login(param1) {
     if (param1 in userlist) {
-      console.log("yay");
+      // console.log("yay");
       this.setState({
         isLoggedIn: true,
         user: param1
@@ -25,12 +26,19 @@ class App extends Component {
     }
   }
 
+  logout() {
+    this.setState({
+      isLoggedIn: false,
+      user: null
+    })
+  }
+
   render() {
     const isLoggedIn = this.state.isLoggedIn;
     const username = this.state.user;
     if (isLoggedIn) {
       return(
-        <WelcomePage isLoggedIn={isLoggedIn} username={username} />
+        <WelcomePage isLoggedIn={isLoggedIn} username={username} logout={this.logout} />
       );
     } else {
       return(
@@ -63,6 +71,7 @@ class LoginPage extends Component {
   render() {
     return(
       <div>
+        <h1>Please login</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Username: <input type="text" placeholder="e.g. 'test1'" onChange={this.handleChange} /></label>
           <button type="Submit">Submit</button>
@@ -72,12 +81,23 @@ class LoginPage extends Component {
   }
 }
 
+
 class WelcomePage extends Component {
+  constructor() {
+    super();
+    this.logout = this.logout.bind(this);
+  }
+
+  logout() {
+    this.props.logout();
+  }
+
   render() {
     const username = this.props.username;
     return(
       <div>
         <h1>Thanks for logging in, {username}!</h1>
+        <button onClick={this.logout}>Log out</button>
       </div>
     );
   }
