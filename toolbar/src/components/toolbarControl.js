@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import logo from '../smLogo_gray.png';
 import './toolbarControl.css';
 import DropdownControl from './dropdownControl'
 

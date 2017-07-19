@@ -25,9 +25,9 @@ class LogReg extends Component {
   render() {
     const error = this.props.error;
     return(
-      <div>
+      <div className="login">
         <h1>Please log in</h1>
-        <p>{error}</p>
+        <p className="error">{error}</p>
         <form onSubmit={this.loginReq} >
           <label>Username: <input type="text" onChange={this.onChange} /></label>
           <button type="Submit">Log In</button>
