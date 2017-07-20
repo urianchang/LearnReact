@@ -11,7 +11,7 @@ class PageA extends Component {
 
   componentWillMount() {
     // console.log("page A will mount");
-    const URL = "http://localhost:3002";
+    const URL = "http://localhost:3002/people";
     fetch(URL)
       .then(res => res.json())
       .then(json => {
@@ -42,15 +42,19 @@ class PageA extends Component {
           <h1>All Users</h1>
           <table>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
+              <th>Mongo ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>E-mail</th>
             </tr>
             {
               data.map( (obj, i) => {
                 return (
                   <tr key={i}>
                     <td>{obj._id}</td>
-                    <td>{obj.name}</td>
+                    <td>{obj.metadata.first_name}</td>
+                    <td>{obj.metadata.last_name}</td>
+                    <td>{obj.email}</td>
                   </tr>
                 );
               })
