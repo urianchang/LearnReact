@@ -29,7 +29,7 @@ class PageA extends Component {
 
   render() {
     const data = this.state.info;
-    console.log(data);
+    // console.log(data);
     if (!data) {
       return(
         <div>
@@ -41,24 +41,26 @@ class PageA extends Component {
         <div>
           <h1>All Users</h1>
           <table>
-            <tr>
-              <th>Mongo ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>E-mail</th>
-            </tr>
-            {
-              data.map( (obj, i) => {
-                return (
-                  <tr key={i}>
-                    <td>{obj._id}</td>
-                    <td>{obj.metadata.first_name}</td>
-                    <td>{obj.metadata.last_name}</td>
-                    <td>{obj.email}</td>
-                  </tr>
-                );
-              })
-            }
+            <tbody>
+              <tr>
+                <th>Mongo ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>E-mail</th>
+              </tr>
+              {
+                data.map( (obj, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{obj._id}</td>
+                      <td>{obj.metadata.first_name}</td>
+                      <td>{obj.metadata.last_name}</td>
+                      <td>{obj.email}</td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
           </table>
         </div>
       );
