@@ -40,9 +40,9 @@ class App extends Component {
   } //: End of submitForm
 
   render() {
-    const isFormSubmitted = this.state.isFormSubmitted;
+    // const isFormSubmitted = this.state.isFormSubmitted;
 
-    if (isFormSubmitted) {
+    if (this.state.isFormSubmitted) {
       return(
         <AssemblePage
           execution_id = {this.state.execution_id}
