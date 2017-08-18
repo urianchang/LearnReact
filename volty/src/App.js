@@ -40,8 +40,6 @@ class App extends Component {
   } //: End of submitForm
 
   render() {
-    // const isFormSubmitted = this.state.isFormSubmitted;
-
     if (this.state.isFormSubmitted) {
       return(
         <AssemblePage
@@ -57,7 +55,6 @@ class App extends Component {
         </div>
       );
     }
-
   } //: end of render
 }
 

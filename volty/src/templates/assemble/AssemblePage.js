@@ -37,8 +37,8 @@ class AssemblePage extends Component {
           /*
             This section needs to be reworked when the full system is up and running
           */
-          let taskName = json.taskComplete.name;
-          let taskState = json.taskComplete.state;
+          let taskName = json.taskUpdate.name;
+          let taskState = json.taskUpdate.state;
 
           switch (taskName) {
             case "create_namespace":
@@ -62,6 +62,8 @@ class AssemblePage extends Component {
             default:
               console.log(`ERROR - Unknown Task: ${ taskName }`);
           }
+
+          //: Increasing count instead of keeping track of how many successes <-- LAZY
           let newCount = this.state.count + 1;
           this.setState({ count : newCount });
         });
@@ -71,12 +73,17 @@ class AssemblePage extends Component {
   render() {
     const execution_id = this.props.execution_id;
     let execution_status = (!this.state.isAssembled) ? "Assembling..." : "Done!";
+    let raiseBar = {
+      width: (this.state.count / 6 * 100) + "%",
+    };
     return(
       <div>
         <h2>Thanks for submitting your request!</h2>
-        <p>This is your job id: { execution_id }</p>
-        <p>Status: { execution_status }</p>
-        <h4>Progress Bar goes here: { this.state.count }</h4>
+        <p>This is your job id: <strong>{ execution_id }</strong></p>
+        <p>Status: <strong>{ execution_status }</strong></p>
+        <div className="progressBar">
+          <div className="currentProgress" style={ raiseBar }></div>
+        </div>
         <ul>
           <li>Creating namespace: { this.state.create_namespace }</li>
           <li>Setting up ma common: { this.state.setup_ma_common }</li>
