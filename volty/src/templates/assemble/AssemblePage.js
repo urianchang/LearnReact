@@ -92,9 +92,26 @@ class AssemblePage extends Component {
           <li>Setting up MongoDB: { this.state.setup_mongodb }</li>
           <li>Setting up ma: { this.state.setup_ma }</li>
         </ul>
+        <Surprise isAssembled = {this.state.isAssembled} />
       </div>
     );
   }
 }
+
+class Surprise extends Component {
+  render() {
+    if (this.props.isAssembled) {
+      return(
+        <img src={require('./vpunch.gif')} alt="voltron punching space" width="400" height="300"/>
+      );
+    } else {
+      return(
+        <img src={require('./vassemble.gif')} alt="voltron pieces coming together" width="400" height="300" />
+      );
+    }
+  }
+}
+
+
 
 export default AssemblePage;
