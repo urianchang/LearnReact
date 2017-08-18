@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from './components/form/form';
+import AssemblePage from './templates/assemble/AssemblePage';
 
 class App extends Component {
 
@@ -17,34 +18,36 @@ class App extends Component {
 
   submitForm(formBody) {
     this.setState({ isFormSubmitted: true });
-    console.log(formBody);  //: For debugging purposes...
-    //: Send API Request here...
-
-    //: Get Response back (json)
-    let someResponse = {
-      execution_id: "1234",
-      status: "OK",
-    }
-
-    this.setState({
-      execution_id: someResponse.execution_id,
-      execution_status: someResponse.status,
-    });
-  }
+    // console.log(formBody);  //: For debugging purposes...
+    //: Send Request to create a Voltron
+    const endpoint = "http://localhost:3003/api/v1/workflows/create_ma_service_environment";
+    fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formBody),
+    })
+      .then(res => res.json())
+      .then(json => {
+        // console.log("API RESPONSE:", json);
+        this.setState({
+          execution_id: json.execution_id,
+          execution_status: json.status,
+        });
+      });
+  } //: End of submitForm
 
   render() {
     const isFormSubmitted = this.state.isFormSubmitted;
 
     if (isFormSubmitted) {
-      const execution_id = this.state.execution_id;
-      const execution_status = this.state.execution_status;
       return(
-        <div>
-          <h2> Thanks for submitting! </h2>
-          <p>Execution id: { execution_id }</p>
-          <h4>Progress Bar goes here</h4>
-          <p>Status: { execution_status }</p>
-        </div>
+        <AssemblePage
+          execution_id = {this.state.execution_id}
+          execution_status = {this.state.execution_status}
+        />
       );
     } else {
       return (
@@ -55,7 +58,7 @@ class App extends Component {
       );
     }
 
-  }
+  } //: end of render
 }
 
 export default App;

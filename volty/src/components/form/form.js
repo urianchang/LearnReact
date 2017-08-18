@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './form.css';
 
-
 class Form extends Component {
 
   constructor(props) {
@@ -31,9 +30,7 @@ class Form extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-
     // console.log(name, value);  //: For debugging...
-
     this.setState({
       [name]: value
     });
