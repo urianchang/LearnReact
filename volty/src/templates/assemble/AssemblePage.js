@@ -77,7 +77,7 @@ class AssemblePage extends Component {
       width: (this.state.count / 6 * 100) + "%",
     };
     return(
-      <div>
+      <div className="waiting-room">
         <h2>Thanks for submitting your request!</h2>
         <p>This is your job id: <strong>{ execution_id }</strong></p>
         <p>Status: <strong>{ execution_status }</strong></p>

@@ -1,10 +1,27 @@
+.waiting-room {
+  padding: 5px;
+}
+
+p {
+  margin: 10px 0px;
+}
+
 .progressBar {
   width: 100%;
   background-color: #ddd;
+  margin-top: 5px;
 }
 
 .currentProgress {
   width: 1%;
   height: 30px;
   background-color: #4CAF50;
+}
+
+ul {
+  padding: 10px;
+}
+
+ul li {
+  margin: 10px;
 }

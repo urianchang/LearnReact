@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './components/form/form';
 import AssemblePage from './templates/assemble/AssemblePage';
+import './App.css';
 
 class App extends Component {
 
@@ -49,7 +50,7 @@ class App extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="app">
           <h2>Please fill out the form below</h2>
           <Form submitForm={this.submitForm} />
         </div>
