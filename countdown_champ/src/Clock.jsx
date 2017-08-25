@@ -30,13 +30,18 @@ class Clock extends Component {
     this.setState({ days, hours, minutes, seconds });
   }
 
+  leading0(num) {
+    //: Ternary expression
+    return num < 10 ? "0" + num : num;
+  }
+
   render() {
     return(
       <div>
-        <div className='Clock-days'>{this.state.days} days</div>
-        <div className='Clock-hours'>{this.state.hours} hours</div>
-        <div className='Clock-minutes'>{this.state.minutes} minutes</div>
-        <div className='Clock-seconds'>{this.state.seconds} seconds</div>
+        <div className='Clock-days'>{this.leading0(this.state.days)} days</div>
+        <div className='Clock-hours'>{this.leading0(this.state.hours)} hours</div>
+        <div className='Clock-minutes'>{this.leading0(this.state.minutes)} minutes</div>
+        <div className='Clock-seconds'>{this.leading0(this.state.seconds)} seconds</div>
       </div>
     );
   }
