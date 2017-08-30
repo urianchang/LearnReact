@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 
 import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 class About extends Component {
   render() {
@@ -51,22 +53,26 @@ const Topics = ({ match }) => (
   </div>
 );
 
+const NoMatch = () => (
+  <div>
+    <h1>404</h1>
+    <h2>Sorry! The page that you requested could not be found.</h2>
+  </div>
+);
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/topics">Topics</Link></li>
-          </ul>
-
-          <hr />
-
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/topics" component={Topics} />
+          <Navbar />
+          <hr/>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/topics" component={Topics} />
+            <Route component={NoMatch} />
+          </Switch>
         </div>
       </Router>
     );
