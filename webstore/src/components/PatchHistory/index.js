@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
-export default class Home extends Component {
+class PatchHistory extends Component {
   render() {
     return(
       <div>
-        <h2>Welcome to the Sight Machine Boutique</h2>
+        <h2>History of Patches</h2>
       </div>
     );
   }
 }
+
+export default PatchHistory;
