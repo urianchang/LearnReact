@@ -8,7 +8,7 @@ class PageA extends Component {
       info: null
     };
   }
-
+  //: Need to change this. Perform API call in componentDidMount method to prevent setState() error for a component not yet mounted
   componentWillMount() {
     // console.log("page A will mount");
     const URL = "http://localhost:3002/people";
