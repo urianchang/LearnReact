@@ -18,7 +18,6 @@ class App extends Component {
       <Router>
         <div>
           <Navbar />
-          <hr/>
           <Switch>
             <Route exact path="/" component = { Home } />
             <Route path="/patches" component = { PatchHistory } />

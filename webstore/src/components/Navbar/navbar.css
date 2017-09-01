@@ -1,0 +1,43 @@
+.App-logo {
+  animation: App-logo-spin infinite 15s linear;
+  height: 40px;
+  margin: 10px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Navbar {
+  background-color: red;
+  height: 60px;
+}
+
+.Navlinks {
+  display: inline-block;
+  vertical-align: top;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Navlinks li {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 60px;
+}
+
+.Navlink {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  margin: 0px 20px;
+  color: white;
+}
+
+.Navlink:hover {
+  border-bottom: 1px solid white;
+  padding-bottom: 3px;
+}
