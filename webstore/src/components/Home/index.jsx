@@ -6,7 +6,7 @@ export default class Home extends Component {
     return(
       <div>
         <h2>Welcome to the Sight Machine Boutique</h2>
-        <InventoryTable />
+        <InventoryTable topic={"test"} />
       </div>
     );
   }
