@@ -1,0 +1,10 @@
+SightMachine Internal Store
+
+Show current inventory (1)
+Place order / Web store
+Submit product ideas
+
+Patches
+- Nominate Golden Gear
+- Inventory <?>
+- History / Documentation
