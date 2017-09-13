@@ -4,9 +4,9 @@ import imagePlaceholder from './derpDuck.jpg';
 
 class PatchCard extends Component {
   //: Constructor in case of adding method(s) of retrieving patch images
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return(
@@ -17,7 +17,6 @@ class PatchCard extends Component {
       </div>
     );
   }
-
 }
 
 export default PatchCard;
