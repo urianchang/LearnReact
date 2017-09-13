@@ -6,7 +6,7 @@ class PatchHistory extends Component {
     return(
       <div>
         <h2>History of Patches</h2>
-        <PatchCard />
+        <PatchCard title="title placeholder" description="description placeholder" />
       </div>
     );
   }
