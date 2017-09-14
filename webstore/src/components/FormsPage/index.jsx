@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 
-const Topic = ({ match }) => (
+const Form = ({ match }) => (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
 );
 
-const Topics = ({ match }) => (
+const FormsPage = ({ match }) => (
   <div>
-    <h2>Topics</h2>
+    <h2>Forms</h2>
     <ul>
       <li>
         <Link to={`${match.url}/rendering`}>
@@ -27,12 +27,13 @@ const Topics = ({ match }) => (
         </Link>
       </li>
     </ul>
-
-    <Route path={`${match.url}/:topicId`} component={Topic} />
-    <Route exact path={match.url} render={() => (
-        <h3>Please select a topic.</h3>
-      )} />
+    <Switch>
+      <Route exact path={match.url} render={() => (
+          <h3>Please select a topic.</h3>
+        )} />
+      <Route path={`${match.url}/:topicId`} component={Form} />
+    </Switch>
   </div>
 );
 
-export default Topics;
+export default FormsPage;

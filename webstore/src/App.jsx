@@ -10,7 +10,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import NoMatch from './components/NoMatch';
 import PatchHistory from './components/PatchHistory';
-import Topics from './components/Topics';
+import FormsPage from './components/FormsPage';
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component = { Home } />
             <Route path="/patches" component = { PatchHistory } />
-            <Route path="/topics" component = { Topics } />
+            <Route path="/forms" component = { FormsPage } />
             <Route component = { NoMatch } />
           </Switch>
         </div>

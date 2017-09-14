@@ -11,7 +11,7 @@ export default class Navbar extends Component {
         <ul className="Navlinks">
           <li><Link className="Navlink" to="/">Home</Link></li>
           <li><Link className="Navlink" to="/patches">Patches</Link></li>
-          <li><Link className="Navlink" to="/topics">Topics</Link></li>
+          <li><Link className="Navlink" to="/forms">Forms</Link></li>
         </ul>
       </div>
     );
