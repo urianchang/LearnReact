@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import firebase from '../../firebase';  // Firebase!
 import './table.css';
-// import 'fixed-data-table/dist/fixed-data-table.min.css';  // Fixed-data-table CSS
-// const { Table, Column, Cell } = require('fixed-data-table'); // Fixed data table
 
 class InventoryTable extends Component {
   constructor(props) {
