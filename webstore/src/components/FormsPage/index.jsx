@@ -37,9 +37,7 @@ const FormsPage = ({ match }) => (
   </div>
 );
 
-// <Route path={`${match.url}/:formId`} component={ Form } />
-
-//: Google Forms below
+//: Google Forms
 const GoldenGearNomination = () => (
   <iframe
     className="google-form"
