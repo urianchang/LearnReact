@@ -50,7 +50,16 @@ class TableRow extends Component {
   }
 
   makeCell(param, i) {
-    return(<td key={i}>{ param }</td>);
+    if (i === 5 && param !== "IMG_URL") {
+      console.log(param);
+      return(
+        <td key={i}>
+          <img src={ param } alt= { param } />
+        </td>
+      );
+    } else {
+      return(<td key={i}>{ param }</td>);
+    }
   }
 
   render() {
