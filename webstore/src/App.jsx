@@ -9,7 +9,7 @@ import {
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import NoMatch from './components/NoMatch';
-import PatchHistory from './components/PatchHistory';
+import PatchList from './components/PatchList';
 import FormsPage from './components/FormsPage';
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component = { Home } />
-            <Route path="/patches" component = { PatchHistory } />
+            <Route path="/patches" component = { PatchList } />
             <Route path="/forms" component = { FormsPage } />
             <Route component = { NoMatch } />
           </Switch>

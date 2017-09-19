@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PatchCard from '../PatchCard';
 
-class PatchHistory extends Component {
+class PatchList extends Component {
   constructor() {
     super();
     this.eachCard = this.eachCard.bind(this);
@@ -41,4 +41,4 @@ class PatchHistory extends Component {
   }
 }
 
-export default PatchHistory;
+export default PatchList;
