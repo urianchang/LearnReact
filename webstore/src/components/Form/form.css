@@ -1,0 +1,21 @@
+.form-area {
+  padding: 10px;
+}
+
+.error-msg {
+  color: red;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.submit-button {
+  padding: 5px 10px;
+  background-color: green;
+  color: white;
+}
+
+.disabled {
+  opacity: 0.65;
+  background-color: red;
+  cursor: not-allowed;
+}

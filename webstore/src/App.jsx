@@ -12,6 +12,7 @@ import NoMatch from './components/NoMatch';
 import PatchList from './components/PatchList';
 import FormsPage from './components/FormsPage';
 import HexGrid from './components/HexGrid';
+import Form from './components/Form';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/patches" component = { PatchList } />
             <Route path="/forms" component = { FormsPage } />
             <Route path="/hex" component= { HexGrid } />
+            <Route path='/f' component={ Form } />
             <Route component = { NoMatch } />
           </Switch>
         </div>
