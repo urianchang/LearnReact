@@ -6,7 +6,9 @@ export default class Form extends Component {
     super();
     this.state = {
       isFormValid: false,
-      postBody: { test_input: "", },
+      postBody: {
+        test_input: "",
+      },
       errors: {
         test_input: "",
       },
@@ -15,6 +17,7 @@ export default class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.validateInput = this.validateInput.bind(this);
+    this.validateForm = this.validateForm.bind(this);
   }
 
   handleSubmit(event) {
@@ -32,18 +35,25 @@ export default class Form extends Component {
     this.setState({ postBody }, this.validateInput(name, value));
   }
 
-  validateInput(n, v) {
+  validateInput(fieldName, fieldValue) {
     // console.log(`validating ${n} with value of ${v}`);
-    if (n === "test_input") {
-      let errors = this.state.errors;
-      if (v.length <= 3) {
+    let errors = this.state.errors;
+    if (fieldName === "test_input") {
+      if (fieldValue.length <= 3) {
         errors['test_input'] = "Test input has to be more than 3 characters";
-        this.setState({isFormValid: false, errors });
       } else {
         errors['test_input'] = "";
-        this.setState({isFormValid: true, errors });
       }
     }
+    this.setState({ errors }, this.validateForm());
+  }
+
+  validateForm() {
+    let isFormValid = this.state.isFormValid;
+    for (let key in this.state.errors) {
+      isFormValid = this.state.errors[key] ? false : true;
+    }
+    this.setState({ isFormValid });
   }
 
   render() {
