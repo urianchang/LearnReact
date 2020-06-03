@@ -9,7 +9,6 @@ import {
 import './App.css';
 import MyComponents from '../components/index.js';
 
-
 export default function App() {
   return (
       <Router>

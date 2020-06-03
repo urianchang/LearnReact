@@ -1,17 +1,24 @@
-import {Link, Route, Switch, useParams, useRouteMatch} from "react-router-dom";
+import {
+    Link,
+    Route,
+    Switch,
+    useParams,
+    useRouteMatch
+} from "react-router-dom";
 import React from "react";
 
+import { Clock } from './clock-0.1.jsx';
 
 export default function MyComponents() {
     let match = useRouteMatch();
 
     return (
         <div>
-            <h2>Topics</h2>
+            <h2>Components</h2>
 
             <ul>
                 <li>
-                    <Link to={`${match.url}/components`}>Components</Link>
+                    <Link to={`${match.url}/clock`}>My first clock</Link>
                 </li>
                 <li>
                     <Link to={`${match.url}/props-v-state`}>
@@ -20,11 +27,10 @@ export default function MyComponents() {
                 </li>
             </ul>
 
-            {/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
             <Switch>
+                <Route path={`${match.path}/clock`}>
+                    <Clock />
+                </Route>
                 <Route path={`${match.path}/:topicId`}>
                     <Topic />
                 </Route>
